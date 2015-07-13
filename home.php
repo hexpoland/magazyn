@@ -90,7 +90,27 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
                   }
 
                   echo '
-                  <a href="#" title="Odpowiedz" class="btn btn-info btn-sm" data-toggle="popover" data-placement="right" data-content=""><i class="fa fa-reply">
+            <!-- Popoover-->
+            <div id="myPopover" class="hide">
+
+                <form role=form method="post" action="indeks.php?id=1" >
+                <div class="form-group">
+
+                <label for="comment"></label>
+                <p algin=right>
+                <textarea  name="comment" class="form-control" rows="5" placeholder="Napisz wiadomość do wszystkich"></textarea>
+                </p>
+                <p></p>
+                <center>
+                    <button type="reset"	class="btn btn-info btn-sm">Wyczyść</button>
+                    <button type="submit"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-comment"></span> Wyślij</button>
+                </center>
+                </form>
+                </div>
+            </div>
+            <!-- Popover  -->
+
+                  <a rel="popover" class="btn btn-info btn-sm" data-popover-content="#myPopover"><i class="fa fa-reply">
                   </i> odpowiedz</a>
 
                 </div>
@@ -118,7 +138,8 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
                   }
 
                   echo '
-                  <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-reply"></i> odpowiedz</a>
+                  <a rel="popover" class="btn btn-info btn-sm" data-popover-content="#myPopover"><i class="fa fa-reply">
+                  </i> odpowiedz</a>
 
                 </div>
               </div>
@@ -158,7 +179,7 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 /*Comment List styles*/
 .panel-primary {
-     background-color: rgba(15, 15, 15, 0.2);
+     background-color: rgba(181, 250, 242, 0.69);
 }
 .comment-list .row {
 

@@ -116,7 +116,8 @@ Szukaj</button>
 ';
 
 
-if(isset($_POST["comment"])){
+
+    if(isset($_POST["comment"])){
   date_default_timezone_set('UTC');
   $comment=$_POST['comment'];
 
@@ -132,6 +133,7 @@ if(isset($_POST["comment"])){
 
 
 }
+
 
 #sprawdzamy jaką strone zainkludowac
 if(isset($_GET["a"])!="del"){
@@ -195,16 +197,26 @@ if (isset($_GET["id"])) {
 
 }
 ?>
+
 <!--#laduj style i skrypty java-->
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
-  $('#form-popover').popover({
-    content: $('#form').parent().html(),
-    html: true,
+  $(function(){
+    $('[rel="popover"]').popover({
+        container: 'body',
+        html: true,
+        content: function () {
+            var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+            return clone;
+        }
+    }).click(function(e) {
+        e.preventDefault();
+    });
 });
+
 
 </script>
 
