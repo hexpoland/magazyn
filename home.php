@@ -67,7 +67,7 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
        		<div class="row">
             <div class="col-md-2 col-sm-2 hidden-s">
               <figure class="thumbnail">
-                <img class="img-responsive" src="img/avatar.jpg">
+                <img class="img-responsive img-circle" src="img/avatar.jpg">
                 <figcaption class="text-center">'.$r[user].'</figcaption>
               </figure>
             </div>
@@ -125,7 +125,7 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
             </div>
             <div class="col-md-2 col-sm-2 hidden-xs">
               <figure class="thumbnail">
-                <img class="img-responsive" src="img/avatar.jpg">
+                <img class="img-responsive img-circle" src="img/avatar.jpg">
                 <figcaption class="text-center">'.$r[user].'</figcaption>
               </figure>
             </div>
