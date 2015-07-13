@@ -38,7 +38,10 @@
      }
   </style>
   
-  Komentrze trzeba zrobic w polu popover z javascriptu
+  Komentrze trzeba zrobic w polu popover z javascriptu bootstrap.js w ktalogu js
+  dodac linijke do pliku indekas.php
+  <script src="js/bootstrap.js"></script>
+  mozna tez podlinkowac jQuery
   
 
   Tak wyglada kometarz na stronie glownej :
