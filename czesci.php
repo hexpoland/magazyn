@@ -29,28 +29,31 @@ $_SESSION["szukana"]=0; #zerujemy szukana
 #SZUKANIE END
 
 if(mysql_num_rows($wynik)>0){ #narysuj tyle rows ile rekordow ma wynik
-echo '
+echo "
 <!-- Popoover-->
-            <div id="tablePopover" class="hide">
+            <div id=\"tablePopover\" class=\"hide\">
 
-                <form role=form method="post" action="#" >
-                <div class="form-group">
 
-                <label for="comment"></label>
-                <p algin=right>
-                <textarea  name="comment" class="form-control" rows="5" placeholder="Napisz wiadomość do wszystkich"></textarea>
-                </p>
-                <p></p>
+                <div class=\"form-group\">
+
+                <label for=\"comment\">Właściciel</label>
+                <ul class=\"list-group\">
+                  <li class=\"list-group-item\">Nazwa Firmy: </li>
+                  <li class=\"list-group-item\">Adres: </li>
+                  <li class=\"list-group-item\">Tel: </li>
+                  <li class=\"list-group-item\">Email:".$r['email']."</li>
+
+                </ul>
                 <center>
-                    <button type="reset"	class="btn btn-info btn-sm">Wyczyść</button>
-                    <button type="submit"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-comment"></span> Wyślij</button>
+
+                    <button type=\"submit\"  class=\"btn btn-success btn-sm\"><span class=\"glyphicon glyphicon-comment\"></span> Napisz</button>
                 </center>
                 </form>
                 </div>
             </div>
 <!-- Popover  -->
 
-<table class="table small table-striped">
+<table class=\"table small table-striped\">
 <thead>
       <tr>
 
@@ -64,7 +67,7 @@ echo '
     </thead>
 
 
-';}
+";}
 while($r = mysql_fetch_assoc($wynik)) {  #przypisz do $r kazdy rekord po kolei i wpisz do tabeli
         echo "<tr>";
         echo "<td>".$r['ID']."</td>";
@@ -76,7 +79,7 @@ while($r = mysql_fetch_assoc($wynik)) {  #przypisz do $r kazdy rekord po kolei i
   <label><input type="checkbox" checked="checked" disabled="true">Nowy</label>
 </div></td>';
       };
-        echo "<td><a rel=\"popover\" data-placement=\"top\" data-popover-content=\"#tablePopover\">".$r['email']."</td>";
+        echo "<td><a href=\"func.php\" rel=\"tablepopover\" data-placement=\"top\" data-content=\"<b>Nazwa Firmy: </b>Combi-Service Jerzy Wolakowski<p></p><b>Email: </b>".$r['email']."<p></p><b>Adres: </b><p></p><b>Tel: </b><p></p><center><button class='btn btn-success btn-sm' >Napisz</button></center> \">".$r['email']."</a></td>";
 
         echo "<td>
        <a href=\"mailto:".$r['email']."?subject=Magazyn Częsci Zbytecznych&body=Proszę o wycene części:   [NUMER]:     \n".$r['Numer']."    [NAZWA]:   ".$r['Nazwa']." \" class=\"btn btn-success btn-sm\" role=\"button\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Zamawiam!</a>

@@ -97,9 +97,9 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
                 <div class="form-group">
 
                 <label for="comment"></label>
-                <p algin=right>
+
                 <textarea  name="comment" class="form-control" rows="5" placeholder="Napisz wiadomość do wszystkich"></textarea>
-                </p>
+
                 <p></p>
                 <center>
                     <button type="reset"	class="btn btn-info btn-sm">Wyczyść</button>
@@ -112,7 +112,7 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
 
                   <a rel="popover" class="btn btn-info btn-sm" data-popover-content="#myPopover"><i class="fa fa-reply">
                   </i> odpowiedz</a>
-
+                  </p>
                 </div>
               </div>
             </div>

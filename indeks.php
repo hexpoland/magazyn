@@ -217,6 +217,21 @@ if (isset($_GET["id"])) {
     });
 });
 
+$(function(){
+    $('[rel="tablepopover"]').popover({
+
+        container: 'body',
+        html: true,
+        content: function () {
+            var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+            return clone;
+        }
+    }).click(function(e) {
+        e.preventDefault();
+    });
+});
+
+
 
 </script>
 
