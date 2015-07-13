@@ -30,6 +30,25 @@ $_SESSION["szukana"]=0; #zerujemy szukana
 
 if(mysql_num_rows($wynik)>0){ #narysuj tyle rows ile rekordow ma wynik
 echo '
+<!-- Popoover-->
+            <div id="tablePopover" class="hide">
+
+                <form role=form method="post" action="#" >
+                <div class="form-group">
+
+                <label for="comment"></label>
+                <p algin=right>
+                <textarea  name="comment" class="form-control" rows="5" placeholder="Napisz wiadomość do wszystkich"></textarea>
+                </p>
+                <p></p>
+                <center>
+                    <button type="reset"	class="btn btn-info btn-sm">Wyczyść</button>
+                    <button type="submit"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-comment"></span> Wyślij</button>
+                </center>
+                </form>
+                </div>
+            </div>
+<!-- Popover  -->
 
 <table class="table small table-striped">
 <thead>
@@ -57,7 +76,7 @@ while($r = mysql_fetch_assoc($wynik)) {  #przypisz do $r kazdy rekord po kolei i
   <label><input type="checkbox" checked="checked" disabled="true">Nowy</label>
 </div></td>';
       };
-        echo "<td>".$r['email']."</td>";
+        echo "<td><a rel=\"popover\" data-placement=\"top\" data-popover-content=\"#tablePopover\">".$r['email']."</td>";
 
         echo "<td>
        <a href=\"mailto:".$r['email']."?subject=Magazyn Częsci Zbytecznych&body=Proszę o wycene części:   [NUMER]:     \n".$r['Numer']."    [NAZWA]:   ".$r['Nazwa']." \" class=\"btn btn-success btn-sm\" role=\"button\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Zamawiam!</a>
