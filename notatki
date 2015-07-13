@@ -37,6 +37,9 @@
     z-index: -1;
      }
   </style>
+  
+  Komentrze trzeba zrobic w polu popover z javascriptu
+  
 
   Tak wyglada kometarz na stronie glownej :
 
