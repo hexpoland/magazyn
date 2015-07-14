@@ -102,7 +102,7 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
 
                 <p></p>
                 <center>
-                    <button type="reset"	class="btn btn-info btn-sm">Wyczyść</button>
+                    <button type="reset" class="btn btn-info btn-sm">Wyczyść</button>
                     <button type="submit"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-comment"></span> Wyślij</button>
                 </center>
                 </form>

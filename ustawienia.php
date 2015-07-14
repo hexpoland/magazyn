@@ -21,8 +21,8 @@ if($a==updateuser){
  	$nazwa=$_POST['nazwa'];
  	$adres=$_POST['adres'];
  	$email=$user[email];
-	//mysql_query("INSERT INTO `czesci` (ID, Numer, Nazwa, Opis, Nowy, email) VALUES (NULL,'$numer','$nazwa','$opis','$nowa','$email')");
-	echo mysql_error();
+
+	mysql_query("UPDATE users set nazwa_firmy='$nazwa', adres='$adres', telefon='$numertel' WHERE `email` = '$email'")or die(mysql_error());
 
 
 	include("indeks.php");
@@ -34,7 +34,7 @@ if($a==updateuser){
 	</div>
 	</div>
 	';
-	include("home.php");
+	#include("home.php");
  exit;
 }
 
@@ -43,7 +43,7 @@ if($a==updateuser){
 
 #sprawdzamy czy jestesmy dalej zalogowani
 if($_SESSION['zalogowany']==true){
-
+$company_data=mysql_fetch_array(mysql_query("SELECT * FROM users WHERE `email`='$email' LIMIT 1"));
 echo '
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <html>
@@ -63,15 +63,15 @@ echo '
 	<form  action="ustawienia.php?a=updateuser" method="post" role="form">
   		<div class="form-group">
     <label for="numer">Nazwa Firmy:</label>
-    <input type="text" class="form-control" name="nazwa" placeholder="Nazwa Firmy">
+    <input type="text" class="form-control" name="nazwa" value="'.$company_data['nazwa_firmy'].'" placeholder="Nazwa Firmy">
   </div>
   <div class="form-group">
     <label for="nazwa">Numer telefonu:</label>
-    <input type="text" class="form-control" name="numertel" placeholder="tel.">
+    <input type="text" class="form-control" name="numertel" value="'.$company_data['telefon'].'" placeholder="tel.">
   </div>
   <div class="form-group">
     <label for="opis">Adres:</label>
-    <textarea type="text" class="form-control" name="adres" placeholder="Adres:"></textarea>
+    <textarea type="text" class="form-control" name="adres" placeholder="Adres:">'.$company_data['adres'].'</textarea>
   </div>
   <div class="checkbox">
     <label><input name="powiadom" type="checkbox"> Powiadamiaj mnie o nowych częściach.</label>

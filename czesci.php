@@ -41,7 +41,7 @@ echo "
                   <li class=\"list-group-item\">Nazwa Firmy: </li>
                   <li class=\"list-group-item\">Adres: </li>
                   <li class=\"list-group-item\">Tel: </li>
-                  <li class=\"list-group-item\">Email:".$r['email']."</li>
+                  <li class=\"list-group-item\">Email: </li>
 
                 </ul>
                 <center>
@@ -68,6 +68,7 @@ echo "
 
 
 ";}
+
 while($r = mysql_fetch_assoc($wynik)) {  #przypisz do $r kazdy rekord po kolei i wpisz do tabeli
         echo "<tr>";
         echo "<td>".$r['ID']."</td>";
@@ -79,7 +80,9 @@ while($r = mysql_fetch_assoc($wynik)) {  #przypisz do $r kazdy rekord po kolei i
   <label><input type="checkbox" checked="checked" disabled="true">Nowy</label>
 </div></td>';
       };
-        echo "<td><a href=\"func.php\" rel=\"tablepopover\" data-placement=\"top\" data-content=\"<b>Nazwa Firmy: </b>Combi-Service Jerzy Wolakowski<p></p><b>Email: </b>".$r['email']."<p></p><b>Adres: </b><p></p><b>Tel: </b><p></p><center><button class='btn btn-success btn-sm' >Napisz</button></center> \">".$r['email']."</a></td>";
+$email1=$r['email'];
+$company_data=mysql_fetch_array(mysql_query("SELECT * FROM users WHERE `email`='$email1' LIMIT 1"));
+        echo "<td><a  rel=\"tablepopover\" data-placement=\"top\" data-content=\"<b>Nazwa Firmy: </b>".$company_data['nazwa_firmy']."<p></p><b>Email: </b>".$r['email']."<p></p><b>Adres: </b>".$company_data['adres']." <p></p><b>Tel:   </b>".$company_data['telefon']." <p></p><center><button class='btn btn-success btn-sm'>Napisz</button></center> \">".$r['email']."</a></td>";
 
         echo "<td>
        <a href=\"mailto:".$r['email']."?subject=Magazyn Częsci Zbytecznych&body=Proszę o wycene części:   [NUMER]:     \n".$r['Numer']."    [NAZWA]:   ".$r['Nazwa']." \" class=\"btn btn-success btn-sm\" role=\"button\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Zamawiam!</a>

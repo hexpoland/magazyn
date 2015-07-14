@@ -27,6 +27,14 @@ exit;
 }
 if($_SESSION['zalogowany']==true){
 $aktywna_strona=basename($_SERVER['REQUEST_URI'],".php");
+$exist_user_info=mysql_query("SELECT `nazwa_firmy` FROM `users`");
+
+if(!$exist_user_info){
+
+mysql_query("ALTER TABLE users ADD COLUMN `nazwa_firmy` TEXT after `email`") or die (mysql_error());
+mysql_query("ALTER TABLE users ADD COLUMN `adres` TEXT after `nazwa_firmy`") or die (mysql_error());
+mysql_query("ALTER TABLE users ADD COLUMN `telefon` TEXT after `adres`") or die (mysql_error());
+}
 
 function navbaractive($strona) #funkcja do przerzucania aktywnego navbara
 {
@@ -215,6 +223,7 @@ if (isset($_GET["id"])) {
     }).click(function(e) {
         e.preventDefault();
     });
+
 });
 
 $(function(){
