@@ -21,7 +21,11 @@ $szukana1=$_SESSION["szukana"];
 #SZUKANIE
 #jezeli szukana nie jest pusta to wykonaj zapytanie do SQL
 if($_SESSION['szukana']!=""){
-$wynik=mysql_query("SELECT * FROM czesci WHERE `Numer`='$szukana1' OR `Nazwa`='$szukana1'");
+
+$szukana1=$szukana1.'*';
+
+
+$wynik=mysql_query("SELECT * FROM czesci WHERE `Numer` REGEXP '$szukana1' OR `Nazwa` REGEXP '$szukana1'");
 $_SESSION["szukana"]=0; #zerujemy szukana
 }else {
   $wynik=mysql_query("SELECT * FROM czesci ");

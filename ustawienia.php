@@ -27,15 +27,15 @@ if($a==updateuser){
 
 	include("indeks.php");
 	echo '
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <div class="container">
     <div class="alert alert-success">
   	<strong>Success!</strong>Zaktualizowano dane firmy!
 	</div>
 	</div>
 	';
-	#include("home.php");
- exit;
+
+
 }
 
 
@@ -45,7 +45,7 @@ if($a==updateuser){
 if($_SESSION['zalogowany']==true){
 $company_data=mysql_fetch_array(mysql_query("SELECT * FROM users WHERE `email`='$email' LIMIT 1"));
 echo '
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <html>
 <head>
     <meta charset="utf-8">
@@ -76,7 +76,7 @@ echo '
   <div class="checkbox">
     <label><input name="powiadom" type="checkbox"> Powiadamiaj mnie o nowych częściach.</label>
   </div>
-  <center><button type="reset" value="true" class="btn btn-sm btn-info">Wyczyść</button>
+  <center><button type="reset" value="true" class="btn btn-sm btn-info">Anuluj</button>
   <button type="submit" value="true" class="btn btn-sm btn-Success">Zmień</button></center>
 </form>
 </div>
