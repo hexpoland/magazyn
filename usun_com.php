@@ -8,6 +8,7 @@
       if($root=true){
       $sql = "DELETE FROM comment WHERE id=$_GET[cid]";
       mysql_query($sql);
+        mysql_query("ALTER TABLE `comment` AUTO_INCREMENT = 1;");
 
       echo '
       <div class="alert alert-success">
