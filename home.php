@@ -27,7 +27,25 @@ echo '<head>
   </head>
   <html>
   <body>
+  <!-- Popoover-->
+            <div id="myPopover" class="hide">
 
+                <form role=form method="post" action="indeks.php?id=1" >
+                <div class="form-group">
+
+                <label for="comment"></label>
+
+                <textarea  name="comment" class="form-control" rows="5" placeholder="Napisz wiadomość do wszystkich"></textarea>
+
+                <p></p>
+                <center>
+                    <button type="reset" class="btn btn-info btn-sm">Wyczyść</button>
+                    <button type="submit"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-comment"></span> Wyślij</button>
+                </center>
+                </form>
+                </div>
+            </div>
+            <!-- Popover  -->
 
   <div class=container>
   <div class="row">
@@ -64,6 +82,7 @@ echo '<head>
 while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy $r
 		if($r[id]%2==0||$r[id]==0){
 		echo '
+
        		<div class="row">
             <div class="col-md-2 col-sm-2 hidden-s">
               <figure class="thumbnail">
@@ -90,25 +109,7 @@ while($r = mysql_fetch_assoc($wynik)) {   #wyluskaj ilosc komentarzy do tablicy 
                   }
 
                   echo '
-            <!-- Popoover-->
-            <div id="myPopover" class="hide">
 
-                <form role=form method="post" action="indeks.php?id=1" >
-                <div class="form-group">
-
-                <label for="comment"></label>
-
-                <textarea  name="comment" class="form-control" rows="5" placeholder="Napisz wiadomość do wszystkich"></textarea>
-
-                <p></p>
-                <center>
-                    <button type="reset" class="btn btn-info btn-sm">Wyczyść</button>
-                    <button type="submit"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-comment"></span> Wyślij</button>
-                </center>
-                </form>
-                </div>
-            </div>
-            <!-- Popover  -->
 
                   <a rel="popover" class="btn btn-info btn-sm" data-popover-content="#myPopover"><i class="fa fa-reply">
                   </i> odpowiedz</a>

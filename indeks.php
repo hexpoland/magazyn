@@ -20,12 +20,14 @@ echo '
 
 exit;
 }
+
 $user = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE `email`='$email' AND `haslo`='$haslo' LIMIT 1"));
     if (empty($user[id]) OR !isset($user[id])) {
 echo '<br>Nieprawidłowe logowanie.<br>';
 exit;
 }
 if($_SESSION['zalogowany']==true){
+    mysql_query("SET NAMES latin1_swedish_ci");
 $aktywna_strona=basename($_SERVER['REQUEST_URI'],".php");
 $exist_user_info=mysql_query("SELECT `nazwa_firmy` FROM `users`");
 
@@ -132,7 +134,7 @@ Szukaj</button>
   $date = date('Y-m-d H:i:s');
 
   if(!empty($comment)){
-    mysql_query("INSERT INTO `comment` (user,message,Data) VALUES ('$user[email]','$comment','$date')") or die ("Nie udało się dodac wiadomosci!");
+    mysql_query("INSERT INTO `comment` (user,message,Data) VALUES ('$user[email]','$comment','$date')") or die (mysql_error());
     $comment="";
   }
 
