@@ -30,6 +30,7 @@ if($a==updateuser){
 
     <div class="container">
     <div class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   	<strong>Success!</strong>Zaktualizowano dane firmy!
 	</div>
 	</div>

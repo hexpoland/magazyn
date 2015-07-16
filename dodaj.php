@@ -26,7 +26,8 @@ if($a==addtobase){
  		$nowa=true;
  	}else $nowa=false;
  	$email=$user[email];
-	mysql_query("INSERT INTO `czesci` (ID, Numer, Nazwa, Opis, Nowy, email) VALUES (NULL,'$numer','$nazwa','$opis','$nowa','$email')");
+	if($numer!=NULL&&$nazwa!=NULL){
+    mysql_query("INSERT INTO `czesci` (ID, Numer, Nazwa, Opis, Nowy, email) VALUES (NULL,'$numer','$nazwa','$opis','$nowa','$email')");
 	echo mysql_error();
 
 
@@ -35,12 +36,26 @@ if($a==addtobase){
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <div class="container">
     <div class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   	<strong>Success!</strong>Dodano do bazy!
 	</div>
 	</div>
-	';
-	include("moje_czesci.php");
- exit;
+	';}
+    else{
+        include("indeks.php");
+      echo '
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <div class="container">
+    <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  	<strong>Uwaga!</strong>Wypelnij puste pola!
+	</div>
+	</div>
+
+    ';}
+    include("moje_czesci.php");
+    exit();
+
 }
 
 
@@ -79,7 +94,7 @@ echo '
     <textarea type="text" class="form-control" name="opis" placeholder="Opis"></textarea>
   </div>
   <div class="checkbox">
-    <label><input name="nowa" type="checkbox"> Nowa</label>
+    <label><input checked="checked" readonly onclick="return false" name="nowa" type="checkbox" > Nowa</label>
   </div>
   <center><button type="reset" value="true" class="btn btn-sm btn-info">Wyczyść</button>
   <button type="submit" value="true" class="btn btn-sm btn-Success">Dodaj</button></center>

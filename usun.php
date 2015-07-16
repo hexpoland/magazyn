@@ -11,6 +11,7 @@
         if($email==$check[email]){
       $sql = "DELETE FROM `czesci` WHERE ID=$_GET[id]";
       mysql_query($sql);
+        mysql_query("ALTER TABLE `czesci` AUTO_INCREMENT = 1");
 
       echo '
       <div class="alert alert-success">
