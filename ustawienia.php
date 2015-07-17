@@ -61,25 +61,41 @@ echo '
 
 	<div class="panel-heading"><h4>Dane Firmy :</h4></div>
 	<div class="panel panel-body">
+    <div class="row">
+
+            <div class="col-md-3 col-sm-3 hidden-s">
+              <figure style="float:left" class="thumbnail">
+                <img class="img-responsive img-circle" src="img/avatar.jpg">
+                <figcaption class="text-center">'.$r[user].'</figcaption>
+              </figure>
+            </div>
+            </div>
 	<form  action="ustawienia.php?a=updateuser" method="post" role="form">
   		<div class="form-group">
     <label for="numer">Nazwa Firmy:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
     <input type="text" class="form-control" name="nazwa" value="'.$company_data['nazwa_firmy'].'" placeholder="Nazwa Firmy">
-  </div>
+  </div></p>
+
   <div class="form-group">
     <label for="nazwa">Numer telefonu:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
     <input type="text" class="form-control" name="numertel" value="'.$company_data['telefon'].'" placeholder="tel.">
-  </div>
+  </div></p>
   <div class="form-group">
     <label for="opis">Adres:</label>
     <textarea type="text" class="form-control" name="adres" placeholder="Adres:">'.$company_data['adres'].'</textarea>
-  </div>
+  </div></p>
   <div class="checkbox">
     <label><input name="powiadom" type="checkbox"> Powiadamiaj mnie o nowych częściach.</label>
   </div>
-  <center><button type="reset" value="true" class="btn btn-sm btn-info">Anuluj</button>
-  <button type="submit" value="true" class="btn btn-sm btn-Success">Zmień</button></center>
+  <hr>
+  <center><button type="reset" value="true" class="btn btn btn-info">Anuluj</button>
+  <button type="submit" value="true" class="btn btn btn-Success">Zmień</button></center>
 </form>
+</p>
 </div>
 </div>
 </div>

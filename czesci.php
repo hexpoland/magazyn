@@ -36,7 +36,8 @@ if(mysql_num_rows($wynik)>0){ #narysuj tyle rows ile rekordow ma wynik
 echo "
 <!-- Popoover-->
             <div id=\"tablePopover\" class=\"hide\">
-
+                 <div class=\"row\">
+                 <div class=\"col-sm-4\">.col-sm-4</div>
 
                 <div class=\"form-group\">
 
@@ -51,8 +52,10 @@ echo "
                 <center>
 
                     <button type=\"submit\"  class=\"btn btn-success btn-sm\"><span class=\"glyphicon glyphicon-comment\"></span> Napisz</button>
+
                 </center>
                 </form>
+                </div>
                 </div>
             </div>
 <!-- Popover  -->

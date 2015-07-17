@@ -68,7 +68,7 @@ echo '<div class="alert alert-success">
 
     /* http://css-tricks.com/perfect-full-page-background-image/ */
     html {
-      background: url(img/background.jpg) no-repeat center center fixed;
+      background: url(img/background.jpg)no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -82,7 +82,7 @@ echo '<div class="alert alert-success">
       background: transparent;
     }
 
-    h1 {
+    .h1my {
       font-family: Quicksand;
       font-weight: 400;
       font-size: 30px;
@@ -90,6 +90,7 @@ echo '<div class="alert alert-success">
 
     /* Override B3 .panel adding a subtly transparent background */
     .panel {
+        border-radius: 15px;
       background-color: rgba(255, 255, 255, 0.9);
         box-shadow: 20px 10px 30px rgba(16, 16, 16, 0.65);
     }
@@ -108,11 +109,11 @@ echo '<div class="alert alert-success">
   <div class="container">
   <div class="row">
   <div class="col-md-6 col-md-offset-3 panel panel-default">
-
-    <h1>MagazynCzesciZbytecznych</h1>
+    <center>
+    <h1 class="h1my">MagazynCzesciZbytecznych</h1>
     <p></br></p>
     <h4>Rejestracja</h4>
-
+      </center>
 <form method="post" action="rejestracja.php?akcja=wykonaj" role="form">
 <div class="form-group">
 <label for="email">Email:</label>
@@ -125,6 +126,8 @@ echo '<div class="alert alert-success">
 <p><br>
 <center>
 <button type="submit" class="btn btn-info">Rejestracja</button>
+<p><br></p>
+<small class="text-muted">Coding by hex wolaqu@poczta.onet.pl</small>
 </center>
 </p>
 </div>

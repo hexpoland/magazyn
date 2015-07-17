@@ -29,23 +29,28 @@
       background: transparent;
     }
 
-    h1 {
+    .h1my {
       font-family: Quicksand;
       src:url("font/Quicksand.otf");
       font-weight: 400;
       font-size: 30px;
     }
 
+
+
     /* Override B3 .panel adding a subtly transparent background */
     .panel {
         border-radius: 15px;
-      background-color: rgba(255, 255, 255, 0.83);
+      background-color: rgba(252, 252, 252, 0.87);
 
         box-shadow: 20px 10px 30px rgba(16, 16, 16, 0.65);
     }
 
     .margin-base-vertical {
       margin: 40px 0;
+    }
+    .hrmy{
+       background-color:rgb(8, 8, 8);
     }
 
   </style>
@@ -63,7 +68,8 @@
   <div class="container">
   <div class="row">
   <div class="col-md-6 col-md-offset-3 panel panel-default">
-  <h1>#MagazynCzesciZbytecznych</h1>
+  <h1 class="h1my">MagazynCzesciZbytecznych</h1>
+
 	<form method="POST" action="login.php">
 	<div class="form-group">
 	<table cellpadding="1" cellspacing="2" width="300" >
@@ -72,7 +78,6 @@
   <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
   <input type="email" id="emailField" name="email" class="form-control" placeholder="jan@kowalski.pl" maxlength="80"></td></tr>
 	</p>
-  <br>
 	<td><br></td>
 	<tr><td width="80"><label for="passwordField">Hasło:</label></td><td>
 <p class="input-group">
