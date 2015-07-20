@@ -47,6 +47,8 @@ function navbaractive($strona) #funkcja do przerzucania aktywnego navbara
 
 }
 $wynik=mysql_query("SELECT * FROM users");
+$parts=mysql_query("SELECT * FROM czesci");
+$parts_counter=mysql_num_rows($parts);
 echo '
 
 <html>
@@ -64,7 +66,7 @@ echo '
       <ul class="nav navbar-nav">
 
         <li '.navbaractive("indeks.php?id=1").'><a href="indeks.php?id=1"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li '.navbaractive("indeks.php?id=2").'><a href="indeks.php?id=2"><span class="glyphicon glyphicon-list"></span> Części</a></li>
+        <li '.navbaractive("indeks.php?id=2").'><a href="indeks.php?id=2"><span class="glyphicon glyphicon-list"></span> Części <span class="badge">'.$parts_counter.'</span></a></li>
         <li '.navbaractive("indeks.php?id=3").'><a href="indeks.php?id=3"><span class="glyphicon glyphicon-user"></span> Moje Częsci</a></li>
         <li '.navbaractive("indeks.php?id=4").'><a href="indeks.php?id=4"><span class="glyphicon glyphicon-wrench"></span> Ustawienia</a></li>
 
@@ -72,7 +74,7 @@ echo '
 
         ';
         if($root){
-          echo "<li '.navbaractive(\"indeks.php?id=1\").'><a href=\"indeks.php?id=1\"><span class=\"glyphicon glyphicon-lock\"></span> Admin</a></li>";
+          echo "<li ".navbaractive("indeks.php?id=5")."><a href=\"indeks.php?id=5\"><span class=\"glyphicon glyphicon-lock\"></span> Admin</a></li>";
 
         }
 
@@ -102,25 +104,27 @@ Szukaj</button>
 <br></br>
 <br></br>
  <div class="container">
-  <div class="jumbotron">
-
+<div class="jumbotron">
+    <div class="row">
     <h1><span class="glyphicon glyphicon-cog" style:"background-color:#FFFFF"></span>MagazynCzęściZbytecznych</h1>
-    <p><h3><small>Witaj <kbd>'.$user[email].'</kbd>  w systemie wymiany częsci do urządzeń gastronomicznych.</small></h3></p>
-    <p style="padding-top:1px;"></p>
-  <div class="col-xs-3">
-  <form class="form-inline" role="form" action="indeks.php" method="get">
-  <input type="text" class="form-control input-sm" name="szukaj" placeholder="Szukaj..." height="100">
-  <button type="submit" class="btn btn-primary btn-sm">Szukaj</button>
-  </div>
-  </form>
+    <p><div class="col-md-8"><h3><small>Witaj <kbd>'.$user[email].'</kbd>  w systemie wymiany częsci do urządzeń gastronomicznych.</small></h3>
+    <form class="form-inline" role="form" action="indeks.php" method="get">
+            <input type="text" class="form-control input-sm" name="szukaj" placeholder="Szukaj..." height="100">
+            <button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Szukaj</button>
 
-  </p>
-    <p></p>
-    <p><br></p>
-  </div>
+            </form></div>
+
+        <div class="col-md-4">
+
+                  <img src="img/imac.png" weidth="100" height="100" algin="left" class="pull-right" class="img-responsive"></div>
+
+
+        </div>
+
+    </div>
 
 </div>
-
+</div>
 </body>
 </html>
 ';
@@ -190,6 +194,11 @@ if (isset($_GET["id"])) {
       include("ustawienia.php");
 
 
+    }elseif ($_GET["id"] == "5")
+    {
+      include("admin_users.php");
+
+
     }
 }#linki do stron
 } elseif($_GET["a"]=="del"){ #usuwanie czesci
@@ -200,7 +209,11 @@ if (isset($_GET["id"])) {
 
 } elseif ($_GET["a"]=="edit") { #edytowanie czesci
   include("edit.php");
+
+} elseif ($_GET["a"]=="del_user") { #edytowanie czesci
+  include("usun_user.php");
 }
+
 
 
 
@@ -209,6 +222,7 @@ if (isset($_GET["id"])) {
 ?>
 
 <!--#laduj style i skrypty java-->
+
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

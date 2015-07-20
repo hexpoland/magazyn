@@ -65,8 +65,8 @@ echo '
 
             <div class="col-md-3 col-sm-3 hidden-s">
               <figure style="float:left" class="thumbnail">
-                <img class="img-responsive img-circle" src="img/avatar.jpg">
-                <figcaption class="text-center">'.$r[user].'</figcaption>
+                <img class="img-responsive img-circle" src="img/avatar.jpg" style="max-height:180px;height:100px;">
+                <figcaption class="text-center"></figcaption>
               </figure>
             </div>
             </div>
@@ -85,15 +85,18 @@ echo '
     <input type="text" class="form-control" name="numertel" value="'.$company_data['telefon'].'" placeholder="tel.">
   </div></p>
   <div class="form-group">
+
     <label for="opis">Adres:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
     <textarea type="text" class="form-control" name="adres" placeholder="Adres:">'.$company_data['adres'].'</textarea>
   </div></p>
   <div class="checkbox">
     <label><input name="powiadom" type="checkbox"> Powiadamiaj mnie o nowych częściach.</label>
   </div>
-  <hr>
-  <center><button type="reset" value="true" class="btn btn btn-info">Anuluj</button>
-  <button type="submit" value="true" class="btn btn btn-Success">Zmień</button></center>
+
+  <center><button type="reset" value="true" class="btn btn btn-info"><span class="glyphicon glyphicon-remove-sign"></span> Anuluj</button>
+  <button type="submit" value="true" class="btn btn btn-Success"><span class="glyphicon glyphicon-ok-sign"></span> Zmień</button></center>
 </form>
 </p>
 </div>

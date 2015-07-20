@@ -31,7 +31,18 @@ echo '
 $correct=1;
 
 }
+$exist=mysql_query("SELECT * FROM `users` WHERE email='$email'");
+if(mysql_num_rows($exist)>=1){
 
+echo '
+
+<div class="alert alert-warning">
+  <strong>Uwaga!</strong>Użytkownik o danym mailu juz istnieje
+</div>
+';
+$correct=1;
+
+}
 //$spr2 = mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM uzytkownicy WHERE email='$email' LIMIT 1")); // czy user o takim emailu istnieje
 //$pos = strpos($email, "@");
 
@@ -43,11 +54,13 @@ $correct=1;
 $haslo = md5($haslo); //szyfrowanie hasla
 if($correct<1){
 mysql_query("INSERT INTO `users` (email, haslo) VALUES('$email','$haslo')") or die("Nie mogłem Cie zarejestrować!");
-
+mail('wolaqu@poczta.onet.pl','MagazynCzesciZbytecznych','Uzytkownik'.$email.' wpisal sie do systemu');
 echo '<div class="alert alert-success">
-  <strong>Success!</strong> Zostałeś zarejestrowny ! ' .$email.'
-<br><button type="button" class="btn btn-info btn-xs"><a href="index.php">Logowanie</a></button></div>
-';
+  <strong>Brawo!</strong> Zostałeś zarejestrowny ! ' .$email.'
+<br></div>';
+include("index.php");
+exit();
+
 }}
 ?>
 
