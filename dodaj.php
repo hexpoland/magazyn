@@ -29,13 +29,7 @@ if($a==addtobase){
 	if($numer!=NULL&&$nazwa!=NULL){
 
     mysql_query("INSERT INTO `czesci` (ID, Numer, Nazwa, Opis, Nowy, email) VALUES (NULL,'$numer','$nazwa','$opis','$nowa','$email')");
-    $all_users=mysql_query("SELECT * FROM `users`");
-    while($r2 = mysql_fetch_assoc($all_users)){
-        echo 'test';
-        echo 'wyslano maila do: '.$r2['email'].'z informacja ze uzytkownik: '.$email.'dodał czesc do magazynu: #NUMER:'.$numer.' #NAZWA: '.$nazwa.' ';
 
-
-    }
 	echo mysql_error();
 
 
@@ -48,7 +42,58 @@ if($a==addtobase){
   	<strong>Success!</strong>Dodano do bazy!
 	</div>
 	</div>
-	';}
+	';
+    $all_users=mysql_query("SELECT * FROM `users`");
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: <magazyn@serwisrational.pl>' . "\r\n";
+$message="
+<html>
+<head>
+<style>
+table, th, td {
+}
+th, td {
+    font-size: 10px;
+    padding: 5px;
+}
+th {
+    background-color: #baad07;
+    color: #ffffff;
+    text-align: left;
+}
+</style>
+</head>
+<body><h2>MagazynCzesciZbytecznych</h2><p><hr></hr><br></p>
+<h4>Użytkownik ".$email." dodał: </h4>
+<table style=\"width:100%\">
+  <tr>
+    <th style=\"height:11px\">Numer</th>
+    <th>Nazwa</th>
+    <th>Opis</th>
+  </tr>
+  <tr>
+    <td>".$numer."</td>
+    <td>".$nazwa."</td>
+    <td>".$opis."</td>
+  </tr>
+</table>
+</body>
+</html>
+";
+
+while($r2 = mysql_fetch_assoc($all_users)){
+
+        mail($r2['email'],'MagazynCzesciZbytecznych',$message,$headers);
+
+
+
+
+
+
+    }
+
+    }
     else{
         include("indeks.php");
       echo '

@@ -31,7 +31,7 @@
 
     .h1my {
       font-family: Quicksand;
-      src:url("font/Quicksand.otf");
+      src:url("\font\Quicksand.otf");
       font-weight: 400;
       font-size: 30px;
     }
@@ -88,8 +88,8 @@
 	<tr><br/><td align="center" colspan="5">
 	<br>
   <center>
-  <button type="submit" class="btn btn-success">Login</button>
-  <a class="btn btn-info" role="button" href="rejestracja.php">Rejestracja</a>
+      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+      <a class="btn btn-info" role="button" href="rejestracja.php"><span class="glyphicon glyphicon-book"></span> Rejestracja</a>
 	<br>
   </center>
 	</td>

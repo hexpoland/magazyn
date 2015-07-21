@@ -54,7 +54,22 @@ $correct=1;
 $haslo = md5($haslo); //szyfrowanie hasla
 if($correct<1){
 mysql_query("INSERT INTO `users` (email, haslo) VALUES('$email','$haslo')") or die("Nie mogłem Cie zarejestrować!");
-mail('wolaqu@poczta.onet.pl','MagazynCzesciZbytecznych','Uzytkownik'.$email.' wpisal sie do systemu');
+
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+// More headers
+$headers .= 'From: <magazynczescizbytecznych@serwisrational.pl>' . "\r\n";
+$message="
+<html>
+<body><h1>MagazynCzesciZbytecznych</h1><p><hr></hr><br></p>
+<h3>Użytkownik:  <i>".$email."</i> wpisał się do systemu.</h3><p><br></p>
+<a href=\"http://www.magazyn.serwisrational.pl\">Idź!</a>
+</body>
+</html>
+";
+
+mail('wolaqu@poczta.onet.pl','MagazynCzesciZbytecznych',$message,$headers);
 echo '<div class="alert alert-success">
   <strong>Brawo!</strong> Zostałeś zarejestrowny ! ' .$email.'
 <br></div>';
@@ -138,7 +153,7 @@ exit();
 <input maxlength="32" class="form-control" type="password" name="vhaslo" placeholder="Powtórz hasło">
 <p><br>
 <center>
-<button type="submit" class="btn btn-info">Rejestracja</button>
+<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-book"></span> Rejestracja</button>
 <p><br></p>
 <small class="text-muted">Coding by hex wolaqu@poczta.onet.pl</small>
 </center>
