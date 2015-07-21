@@ -30,12 +30,7 @@ if($a==addtobase){
 
     mysql_query("INSERT INTO `czesci` (ID, Numer, Nazwa, Opis, Nowy, email) VALUES (NULL,'$numer','$nazwa','$opis','$nowa','$email')");
     $all_users=mysql_query("SELECT * FROM `users`");
-    while($r2 = mysql_fetch_assoc($all_users)){
-        echo 'test';
-        echo 'wyslano maila do: '.$r2['email'].'z informacja ze uzytkownik: '.$email.'dodał czesc do magazynu: #NUMER:'.$numer.' #NAZWA: '.$nazwa.' ';
 
-
-    }
 	echo mysql_error();
 
 
@@ -48,7 +43,14 @@ if($a==addtobase){
   	<strong>Success!</strong>Dodano do bazy!
 	</div>
 	</div>
-	';}
+	';
+    while($r2 = mysql_fetch_assoc($all_users)){
+        echo 'test';
+        echo 'wyslano maila do: '.$r2['email'].'z informacja ze uzytkownik: '.$email.'dodał czesc do magazynu: #NUMER:'.$numer.' #NAZWA: '.$nazwa.' ';
+
+
+    }
+    }
     else{
         include("indeks.php");
       echo '
