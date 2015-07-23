@@ -29,21 +29,25 @@
       background: transparent;
     }
 
-    .h1my {
-      font-family: Quicksand;
-      src:url("\font\Quicksand.otf");
+    h1my {
+      margin-top: 12px;
+      font-family: PTC55F;
+      src:url("font\PTC55F.ttf");
       font-weight: 400;
       font-size: 30px;
+        color: #000000;
     }
 
 
 
     /* Override B3 .panel adding a subtly transparent background */
     .panel {
-        border-radius: 15px;
-      background-color: rgba(252, 252, 252, 0.87);
+        height: 300px;
+        width: 450px;
+        border-radius: 5px;
+      background-color: rgba(234, 229, 229, 0.92);
 
-        box-shadow: 20px 10px 30px rgba(16, 16, 16, 0.65);
+        box-shadow: 20px 10px 30px rgba(16, 16, 16, 0.76);
     }
 
     .margin-base-vertical {
@@ -68,7 +72,7 @@
   <div class="container">
   <div class="row">
   <div class="col-md-6 col-md-offset-3 panel panel-default">
-  <h1 class="h1my">MagazynCzesciZbytecznych</h1>
+  <h1my>MagazynCzesciZbytecznych</h1my>
 
 	<form method="POST" action="login.php">
 	<div class="form-group">
@@ -86,12 +90,9 @@
 	</p>
   <td><br></td>
 	<tr><br/><td align="center" colspan="5">
-	<br>
-  <center>
-      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-      <a class="btn btn-info" role="button" href="rejestracja.php"><span class="glyphicon glyphicon-book"></span> Rejestracja</a>
-	<br>
-  </center>
+	<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+	<a class="btn btn-info" role="button" href="rejestracja.php"><span class="glyphicon glyphicon-book"></span> Rejestracja</a>
+
 	</td>
 	</tr>
 

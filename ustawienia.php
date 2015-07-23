@@ -21,8 +21,37 @@ if($a==updateuser){
  	$nazwa=$_POST['nazwa'];
  	$adres=$_POST['adres'];
  	$email=$user[email];
+    $haslo_form=$_POST['haslo_form'];
+    $haslo_form_repete=$_POST['haslo_form_repete'];
+    if($haslo_form!=""){
+        if($haslo_form==$haslo_form_repete){
+        $haslo_form=md5($haslo_form);
+
+        mysql_query("UPDATE users set haslo='$haslo_form' WHERE `email` = '$email'")or die(mysql_error());
+        $_SESSION['haslo']=$haslo_form;
+        }else{
+            include('indeks.php');
+
+	echo '
+
+    <div class="container">
+    <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  	<strong>Uwaga!</strong> Źle powtórzyłeś hasło!
+	</div>
+	</div>
+	';
+        exit();
+
+
+        }
+
+    }
+
+
 
 	mysql_query("UPDATE users set nazwa_firmy='$nazwa', adres='$adres', telefon='$numertel' WHERE `email` = '$email'")or die(mysql_error());
+
 
 
 	include("indeks.php");
@@ -31,7 +60,7 @@ if($a==updateuser){
     <div class="container">
     <div class="alert alert-success">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  	<strong>Success!</strong>Zaktualizowano dane firmy!
+  	<strong>Success!</strong> Zaktualizowano dane firmy!
 	</div>
 	</div>
 	';
@@ -48,9 +77,7 @@ $company_data=mysql_fetch_array(mysql_query("SELECT * FROM users WHERE `email`='
 echo '
 <link rel="stylesheet" href="css/bootstrap.css">
 <html>
-<head>
-    <meta charset="utf-8">
-  </head>
+
 <body>
 <div class="container">
 <div class="row">
@@ -91,6 +118,23 @@ echo '
     <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
     <textarea type="text" class="form-control" name="adres" placeholder="Adres:">'.$company_data['adres'].'</textarea>
   </div></p>
+  <hr>
+  <div class="form-group">
+    <label for="nazwa">Nowe hasło:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+    <input type="text" class="form-control" name="haslo_form" value="" placeholder="haslo">
+  </div></p>
+  <div class="form-group">
+    <label for="nazwa">Powtórz hasło:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+    <input type="text" class="form-control" name="haslo_form_repete" value="" placeholder="haslo">
+  </div></p>
+  <hr>
+
+
+
   <div class="checkbox">
     <label><input name="powiadom" type="checkbox"> Powiadamiaj mnie o nowych częściach.</label>
   </div>

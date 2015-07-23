@@ -15,7 +15,7 @@ echo '<head>
     <meta charset="utf-8">
 </head>
 <div class="container">
-    <h2>Częsci </h2>
+    <h2>Części </h2>
     <p>1. Wyszukaj częsci 2. Sprawdź własciciela 3. Zamów :</p>';
 $szukana1=$_SESSION["szukana"];
 #SZUKANIE
@@ -59,8 +59,8 @@ echo "
                 </div>
             </div>
 <!-- Popover  -->
-
-<table class=\"table small table-striped\">
+<div class=\"panel panel-shadow\">
+<table class=\"table small table-striped \">
 <thead>
       <tr>
 

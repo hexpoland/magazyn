@@ -136,21 +136,37 @@ echo '
 	<form  action="dodaj.php?a=addtobase" method="post" role="form">
   		<div class="form-group">
     <label for="numer">Numer:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
     <input type="text" class="form-control" name="numer" placeholder="Numer">
+    </p>
   </div>
   <div class="form-group">
     <label for="nazwa">Nazwa:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>
     <input type="text" class="form-control" name="nazwa" placeholder="Nazwa">
+    </p>
   </div>
   <div class="form-group">
     <label for="opis">Opis:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
     <textarea type="text" class="form-control" name="opis" placeholder="Opis"></textarea>
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="nazwa">Cena:</label>
+    <p class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
+    <input type="text" class="form-control" name="cena" placeholder="Cena" disabled>
+    </p>
   </div>
   <div class="checkbox">
     <label><input checked="checked" readonly onclick="return false" name="nowa" type="checkbox" > Nowa</label>
   </div>
-  <center><button type="reset" value="true" class="btn btn-sm btn-info">Wyczyść</button>
-  <button type="submit" value="true" class="btn btn-sm btn-Success">Dodaj</button></center>
+  <center><button type="reset" value="true" class="btn btn btn-info"><span class="glyphicon glyphicon-remove-sign"></span> Wyczyść</button>
+  <button type="submit" value="true" class="btn btn btn-Success"><span class="glyphicon glyphicon-plus-sign"></span> Dodaj</button></center>
 </form>
 </div>
 </div>

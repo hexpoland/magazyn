@@ -80,7 +80,7 @@ echo '
 	<div class="panel panel-body">
 	<form  action="edit.php?id=submit" method="post" role="form">
   <div class="form-group">
-    <label for="numer">Numer:</label>
+    <label for="numer">ID:</label>
     <input type="text" class="form-control" name="ID" placeholder="Numer" value="'.$ida.'" readonly>
   </div>
   		<div class="form-group">

@@ -27,6 +27,7 @@ $wynik=mysql_query("SELECT * FROM czesci WHERE `email`='$mymail'") or die (mysql
 if(mysql_num_rows($wynik)>0){
 #tabelka
 echo '
+<div class="panel panel-shadow">
 <table class="table small table-striped">
 <thead>
       <tr>

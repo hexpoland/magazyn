@@ -155,7 +155,7 @@ exit();
 <center>
 <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-book"></span> Rejestracja</button>
 <p><br></p>
-<small class="text-muted">Coding by hex wolaqu@poczta.onet.pl</small>
+<small class="text-muted">Coding by hex. wolaqu@poczta.onet.pl</small>
 </center>
 </p>
 </div>

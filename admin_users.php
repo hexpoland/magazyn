@@ -58,7 +58,7 @@ echo "
                 </div>
             </div>
 <!-- Popover  -->
-
+<div class=\"panel panel-shadow\">
 <table class=\"table small table-striped\">
 <thead>
       <tr>

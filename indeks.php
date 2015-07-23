@@ -55,7 +55,7 @@ echo '
 <head>
     <meta charset="utf-8">
   </head>
-<body>
+<body style="background: #d6d6d6;">
 
 <nav class="navbar navbar-default transparent navbar-fixed-top hr">
   <div class="container-fluid">
@@ -103,6 +103,7 @@ Szukaj</button>
 </nav>
 <br></br>
 <br></br>
+
  <div class="container">
 <div class="jumbotron">
     <div class="row">
